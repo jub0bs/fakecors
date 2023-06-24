@@ -2,50 +2,54 @@ package fakecors
 
 import "net/http"
 
+func Foo() {}
+func Bar() {}
+func Baz() {}
+
 type Middleware = func(http.Handler) http.Handler
 
-func NewCORS(opts ...OptionCred) (Middleware, error) {
+func NewCORS(opts ...func(*config) errorCred) (Middleware, error) {
 	return nil, nil
 }
 
-type Option interface{}
+type config struct{}
 
-func ExposeAllResponseHeaders() Option {
+func ExposeAllResponseHeaders() func(*config) error {
 	return nil
 }
 
-func ExposeResponseHeaders(headers ...string) Option {
+func ExposeResponseHeaders(headers ...string) func(*config) error {
 	return nil
 }
 
-func FromAnyOrigin() Option {
+func FromAnyOrigin() func(*config) error {
 	return nil
 }
 
-func FromOrigins(origins ...string) Option {
+func FromOrigins(origins ...string) func(*config) error {
 	return nil
 }
 
-func MaxAgeInSeconds(delta uint) Option {
+func MaxAgeInSeconds(delta uint) func(*config) error {
 	return nil
 }
 
-func PreflightSuccessStatus(code uint) Option {
+func PreflightSuccessStatus(code uint) func(*config) error {
 	return nil
 }
 
-func WithAnyMethod() Option {
+func WithAnyMethod() func(*config) error {
 	return nil
 }
 
-func WithAnyRequestHeaders() Option {
+func WithAnyRequestHeaders() func(*config) error {
 	return nil
 }
 
-func WithMethods(methods ...string) Option {
+func WithMethods(methods ...string) func(*config) error {
 	return nil
 }
 
-func WithRequestHeaders(headers ...string) Option {
+func WithRequestHeaders(headers ...string) func(*config) error {
 	return nil
 }
