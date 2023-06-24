@@ -8,48 +8,48 @@ func Baz() {}
 
 type Middleware = func(http.Handler) http.Handler
 
-func NewCORS(opts ...func(*config) errorCred) (Middleware, error) {
+func NewCORS(opts ...OptionCred) (Middleware, error) {
 	return nil, nil
 }
 
-type config struct{}
+type Option interface{}
 
-func ExposeAllResponseHeaders() func(*config) error {
+func ExposeAllResponseHeaders() Option {
 	return nil
 }
 
-func ExposeResponseHeaders(headers ...string) func(*config) error {
+func ExposeResponseHeaders(headers ...string) Option {
 	return nil
 }
 
-func FromAnyOrigin() func(*config) error {
+func FromAnyOrigin() Option {
 	return nil
 }
 
-func FromOrigins(origins ...string) func(*config) error {
+func FromOrigins(origins ...string) Option {
 	return nil
 }
 
-func MaxAgeInSeconds(delta uint) func(*config) error {
+func MaxAgeInSeconds(delta uint) Option {
 	return nil
 }
 
-func PreflightSuccessStatus(code uint) func(*config) error {
+func PreflightSuccessStatus(code uint) Option {
 	return nil
 }
 
-func WithAnyMethod() func(*config) error {
+func WithAnyMethod() Option {
 	return nil
 }
 
-func WithAnyRequestHeaders() func(*config) error {
+func WithAnyRequestHeaders() Option {
 	return nil
 }
 
-func WithMethods(methods ...string) func(*config) error {
+func WithMethods(methods ...string) Option {
 	return nil
 }
 
-func WithRequestHeaders(headers ...string) func(*config) error {
+func WithRequestHeaders(headers ...string) Option {
 	return nil
 }
